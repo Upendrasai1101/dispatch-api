@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="docs/banner.svg" alt="Dispatch Load Balancer: orders flow to the nearest vehicle with room, HIGH priority first" width="100%"/>
+<img src="docs/banner.svg" alt="Dispatch API: orders flow to the nearest vehicle with room, HIGH priority first" width="100%"/>
 
 <br/>
 
@@ -394,8 +394,8 @@ so it starts empty every time.
 <summary><b>Docker and PostgreSQL</b></summary>
 
 ```bash
-docker build -t dispatch-load-balancer .
-docker run -p 8080:8080 dispatch-load-balancer
+docker build -t dispatch-api .
+docker run -p 8080:8080 dispatch-api
 ```
 
 To use PostgreSQL, set `SPRING_PROFILES_ACTIVE=prod` and
