@@ -30,6 +30,13 @@ and every order that cannot fit is reported with a reason.
 ---
 
 
+## Live demo
+
+| Link | URL |
+|---|---|
+| Live API | https://dispatch-api-mp92.onrender.com |
+| Swagger UI | https://dispatch-api-mp92.onrender.com/swagger-ui.html |
+| OpenAPI JSON | https://dispatch-api-mp92.onrender.com/v3/api-docs |
 > **Hosting notes (Render free tier)**
 > - The service sleeps when idle. The first request after a pause can take about a minute; later requests are fast.
 > - The database is Neon (free plan). It does not expire after 30 days, but it pauses when idle and wakes up on the first query.
