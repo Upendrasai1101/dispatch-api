@@ -29,14 +29,10 @@ and every order that cannot fit is reported with a reason.
 
 ---
 
-| | |
-|---|---|
 
 > **Hosting notes (Render free tier)**
 > - The service sleeps when idle. The first request after a pause can take about a minute; later requests are fast.
-> - The free PostgreSQL database expires 30 days after creation (created 13 Nov 2026, so around **13 Dec 2026**).
->   If the live URL is unavailable after that, the app runs locally in one command (see [Run locally](#run-locally)),
->   and I can redeploy it with a new database in a few minutes on request.
+> - The database is Neon (free plan). It does not expire after 30 days, but it pauses when idle and wakes up on the first query.
 
 ---
 
@@ -79,7 +75,7 @@ ready-made Hyderabad sample data in [`samples/`](samples/):
 
 What you should see for the sample data:
 
-| | Result |
+| Check | Result |
 |---|---|
 | Orders vs fleet | 30 orders weighing **510** in total, but the 5 vans hold only **500** |
 | HIGH priority | **10 / 10 assigned** |
