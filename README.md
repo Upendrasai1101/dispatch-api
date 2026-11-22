@@ -81,12 +81,12 @@ What you should see for the sample data:
 
 | | Result |
 |---|---|
-| Orders vs fleet | 30 orders weighing **645** in total, but the 5 vans hold only **500** |
-| HIGH priority | **12 / 12 assigned** |
-| Capacity | **no van over its limit** (VEH001 100/100, VEH002 80/80, VEH003 115/120, VEH004 90/90, VEH005 105/110) |
-| Left over | **8 LOW orders** in `unassignedOrders`, because LOW orders are placed last and the vans are full by then |
+| Orders vs fleet | 30 orders weighing **510** in total, but the 5 vans hold only **500** |
+| HIGH priority | **10 / 10 assigned** |
+| Capacity | **no van over its limit** (VEH001 99/100, VEH002 79/80, VEH003 120/120, VEH004 88/90, VEH005 110/110) |
+| Left over | **1 LOW order** (ORD030, 14 kg) in `unassignedOrders`, because the vans are full by the time it is processed |
 
-`GET /api/dispatch/summary` shows the same picture as numbers: `"demandToCapacityPercent": 129.0`.
+`GET /api/dispatch/summary` shows the same picture as numbers: `"demandToCapacityPercent": 102.0`.
 
 ---
 
@@ -275,14 +275,14 @@ curl -X POST http://localhost:8080/api/dispatch/vehicles \
 ```json
 {
   "totalOrders": 30,
-  "totalOrderWeight": 645.0,
+  "totalOrderWeight": 510.0,
   "totalVehicles": 5,
   "totalFleetCapacity": 500.0,
-  "demandToCapacityPercent": 129.0,
+  "demandToCapacityPercent": 102.0,
   "ordersByPriority": [
-    { "priority": "HIGH", "orderCount": 12, "totalWeight": 275.0 },
-    { "priority": "MEDIUM", "orderCount": 8, "totalWeight": 145.0 },
-    { "priority": "LOW", "orderCount": 10, "totalWeight": 225.0 }
+    { "priority": "HIGH", "orderCount": 10, "totalWeight": 172.0 },
+    { "priority": "MEDIUM", "orderCount": 10, "totalWeight": 162.0 },
+    { "priority": "LOW", "orderCount": 10, "totalWeight": 176.0 }
   ]
 }
 ```
