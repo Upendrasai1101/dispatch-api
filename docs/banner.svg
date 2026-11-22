@@ -13,7 +13,6 @@
   <rect width="1200" height="440" rx="24" fill="url(#bg)"/>
   <rect x="1" y="1" width="1198" height="438" rx="23" fill="none" stroke="#dbe4f0" stroke-width="2"/>
 
-  <!-- left side -->
   <text x="60" y="150" font-family="Segoe UI, Arial, sans-serif" font-size="96" font-weight="800" fill="url(#title)">DISPATCH</text>
   <text x="60" y="205" font-family="Segoe UI, Arial, sans-serif" font-size="34" font-weight="700" fill="#f59e0b">API</text>
   <text x="60" y="250" font-family="Segoe UI, Arial, sans-serif" font-size="22" fill="#475569">Priority first · nearest van · never overloaded</text>
@@ -33,40 +32,49 @@
   <rect x="60" y="390" width="400" height="40" rx="20" fill="#f59e0b"/>
   <text x="260" y="416" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="18" font-weight="700" fill="#ffffff">Haversine · Greedy · Spring Boot</text>
 
-  <!-- right side: vehicles -->
   <g font-family="Segoe UI, Arial, sans-serif">
     <rect x="700" y="50" width="440" height="56" rx="14" fill="#ffffff" stroke="#e2e8f0" stroke-width="2"/>
     <text x="724" y="84" font-size="18" font-weight="700" fill="#1e293b">VEH001</text>
     <rect x="860" y="72" width="180" height="12" rx="6" fill="#e2e8f0"/>
-    <rect x="860" y="72" width="178" height="12" rx="6" fill="#f59e0b"/>
+    <rect x="860" y="72" width="0" height="12" rx="6" fill="#f59e0b">
+      <animate attributeName="width" from="0" to="178" dur="1.2s" begin="0.2s" fill="freeze"/>
+    </rect>
     <rect x="1060" y="64" width="62" height="28" rx="14" fill="#fef3c7"/>
     <text x="1091" y="83" text-anchor="middle" font-size="14" font-weight="700" fill="#92400e">99/100</text>
 
     <rect x="700" y="116" width="440" height="56" rx="14" fill="#ffffff" stroke="#e2e8f0" stroke-width="2"/>
     <text x="724" y="150" font-size="18" font-weight="700" fill="#1e293b">VEH002</text>
     <rect x="860" y="138" width="180" height="12" rx="6" fill="#e2e8f0"/>
-    <rect x="860" y="138" width="178" height="12" rx="6" fill="#f59e0b"/>
+    <rect x="860" y="138" width="0" height="12" rx="6" fill="#f59e0b">
+      <animate attributeName="width" from="0" to="178" dur="1.2s" begin="0.4s" fill="freeze"/>
+    </rect>
     <rect x="1060" y="130" width="62" height="28" rx="14" fill="#fef3c7"/>
     <text x="1091" y="149" text-anchor="middle" font-size="14" font-weight="700" fill="#92400e">79/80</text>
 
     <rect x="700" y="182" width="440" height="56" rx="14" fill="#ffffff" stroke="#e2e8f0" stroke-width="2"/>
     <text x="724" y="216" font-size="18" font-weight="700" fill="#1e293b">VEH003</text>
     <rect x="860" y="204" width="180" height="12" rx="6" fill="#e2e8f0"/>
-    <rect x="860" y="204" width="180" height="12" rx="6" fill="#2563eb"/>
+    <rect x="860" y="204" width="0" height="12" rx="6" fill="#2563eb">
+      <animate attributeName="width" from="0" to="180" dur="1.2s" begin="0.6s" fill="freeze"/>
+    </rect>
     <rect x="1060" y="196" width="62" height="28" rx="14" fill="#dbeafe"/>
     <text x="1091" y="215" text-anchor="middle" font-size="14" font-weight="700" fill="#1e40af">120/120</text>
 
     <rect x="700" y="248" width="440" height="56" rx="14" fill="#ffffff" stroke="#e2e8f0" stroke-width="2"/>
     <text x="724" y="282" font-size="18" font-weight="700" fill="#1e293b">VEH004</text>
     <rect x="860" y="270" width="180" height="12" rx="6" fill="#e2e8f0"/>
-    <rect x="860" y="270" width="176" height="12" rx="6" fill="#22c55e"/>
+    <rect x="860" y="270" width="0" height="12" rx="6" fill="#22c55e">
+      <animate attributeName="width" from="0" to="176" dur="1.2s" begin="0.8s" fill="freeze"/>
+    </rect>
     <rect x="1060" y="262" width="62" height="28" rx="14" fill="#dcfce7"/>
     <text x="1091" y="281" text-anchor="middle" font-size="14" font-weight="700" fill="#166534">88/90</text>
 
     <rect x="700" y="314" width="440" height="56" rx="14" fill="#ffffff" stroke="#e2e8f0" stroke-width="2"/>
     <text x="724" y="348" font-size="18" font-weight="700" fill="#1e293b">VEH005</text>
     <rect x="860" y="336" width="180" height="12" rx="6" fill="#e2e8f0"/>
-    <rect x="860" y="336" width="180" height="12" rx="6" fill="#2563eb"/>
+    <rect x="860" y="336" width="0" height="12" rx="6" fill="#2563eb">
+      <animate attributeName="width" from="0" to="180" dur="1.2s" begin="1.0s" fill="freeze"/>
+    </rect>
     <rect x="1060" y="328" width="62" height="28" rx="14" fill="#dbeafe"/>
     <text x="1091" y="347" text-anchor="middle" font-size="14" font-weight="700" fill="#1e40af">110/110</text>
   </g>
