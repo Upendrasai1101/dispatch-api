@@ -4,10 +4,8 @@
 
 <br/>
 
-<a href="https://dispatch-load-balancer-n5sn.onrender.com/swagger-ui.html"><img src="https://img.shields.io/badge/LIVE_API-Swagger_UI-1b2430?style=for-the-badge&labelColor=1b2430&color=f2b134&logo=swagger&logoColor=white" alt="Live API"/></a>
 <a href="#api"><img src="https://img.shields.io/badge/REST_API-13_endpoints-1b2430?style=for-the-badge&labelColor=1b2430&color=f2b134" alt="REST API"/></a>
 <a href="#testing"><img src="https://img.shields.io/badge/TESTS-67_passing-1b2430?style=for-the-badge&labelColor=1b2430&color=4ec27a" alt="Tests"/></a>
-<a href="https://www.loom.com/share/74ded2b5025e4e11963df9f226ac6e8a"><img src="https://img.shields.io/badge/DEMO_VIDEO-Loom-1b2430?style=for-the-badge&labelColor=1b2430&color=625df5&logo=loom&logoColor=white" alt="Demo video"/></a>
 
 <img src="https://img.shields.io/badge/Java-21-orange?logo=openjdk&logoColor=white" alt="Java 21"/>
 <img src="https://img.shields.io/badge/Spring_Boot-4.1-6DB33F?logo=springboot&logoColor=white" alt="Spring Boot 4.1"/>
@@ -33,10 +31,6 @@ and every order that cannot fit is reported with a reason.
 
 | | |
 |---|---|
-| **Live API** | [https://dispatch-load-balancer-n5sn.onrender.com](https://dispatch-load-balancer-n5sn.onrender.com) (opening the base URL redirects to Swagger) |
-| **Swagger UI** | [https://dispatch-load-balancer-n5sn.onrender.com/swagger-ui.html](https://dispatch-load-balancer-n5sn.onrender.com/swagger-ui.html) |
-| **Demo video (5 min)** | [https://www.loom.com/share/74ded2b5025e4e11963df9f226ac6e8a](https://www.loom.com/share/74ded2b5025e4e11963df9f226ac6e8a) |
-| **OpenAPI JSON** | [https://dispatch-load-balancer-n5sn.onrender.com/v3/api-docs](https://dispatch-load-balancer-n5sn.onrender.com/v3/api-docs) |
 
 > **Hosting notes (Render free tier)**
 > - The service sleeps when idle. The first request after a pause can take about a minute; later requests are fast.
