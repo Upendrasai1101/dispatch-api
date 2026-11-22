@@ -32,6 +32,15 @@
   <rect x="60" y="390" width="400" height="40" rx="20" fill="#f59e0b"/>
   <text x="260" y="416" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="18" font-weight="700" fill="#ffffff">Haversine · Greedy · Spring Boot</text>
 
+  <!-- dashed route lines: stats card to each vehicle -->
+  <g fill="none" stroke="#f59e0b" stroke-width="2.5" stroke-linecap="round" stroke-dasharray="6 6" opacity="0.8">
+    <path d="M660 330 C 680 330, 680 78, 700 78"><animate attributeName="stroke-dashoffset" values="24;0" dur="1s" repeatCount="indefinite"/></path>
+    <path d="M660 330 C 680 330, 680 144, 700 144"><animate attributeName="stroke-dashoffset" values="24;0" dur="1s" repeatCount="indefinite"/></path>
+    <path d="M660 330 C 680 330, 680 210, 700 210"><animate attributeName="stroke-dashoffset" values="24;0" dur="1s" repeatCount="indefinite"/></path>
+    <path d="M660 330 C 680 330, 680 276, 700 276"><animate attributeName="stroke-dashoffset" values="24;0" dur="1s" repeatCount="indefinite"/></path>
+    <path d="M660 330 C 680 330, 680 342, 700 342"><animate attributeName="stroke-dashoffset" values="24;0" dur="1s" repeatCount="indefinite"/></path>
+  </g>
+
   <g font-family="Segoe UI, Arial, sans-serif">
     <rect x="700" y="50" width="440" height="56" rx="14" fill="#ffffff" stroke="#e2e8f0" stroke-width="2"/>
     <text x="724" y="84" font-size="18" font-weight="700" fill="#1e293b">VEH001</text>
