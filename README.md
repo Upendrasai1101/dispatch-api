@@ -37,6 +37,7 @@ and every order that cannot fit is reported with a reason.
 | Live API | https://dispatch-api-mp92.onrender.com |
 | Swagger UI | https://dispatch-api-mp92.onrender.com/swagger-ui.html |
 | OpenAPI JSON | https://dispatch-api-mp92.onrender.com/v3/api-docs |
+
 > **Hosting notes (Render free tier)**
 > - The service sleeps when idle. The first request after a pause can take about a minute; later requests are fast.
 > - The database is Neon (free plan). It does not expire after 30 days, but it pauses when idle and wakes up on the first query.
@@ -118,32 +119,32 @@ The planner is a **greedy, priority-first, nearest-vehicle** algorithm (`GreedyD
 
 ### A small worked example
 
-Two vans in Bangalore and four orders:
+Two vans in Hyderabad and four orders:
 
 | Van | Capacity | Starts at |
 |---|---|---|
-| VAN-A | 50 | Indiranagar |
-| VAN-B | 40 | Whitefield |
+| VAN-A | 50 | Begumpet |
+| VAN-B | 35 | Secunderabad |
 
 | Order | Weight | Priority | Drop point |
 |---|---|---|---|
-| O1 | 30 | HIGH | Koramangala |
-| O2 | 20 | HIGH | Marathahalli |
-| O3 | 25 | LOW | MG Road |
-| O4 | 15 | MEDIUM | KR Puram |
+| O1 | 30 | HIGH | Jubilee Hills |
+| O2 | 20 | HIGH | Ameerpet |
+| O3 | 25 | LOW | Madhapur |
+| O4 | 15 | MEDIUM | Kukatpally |
 
 Queue after sorting: **O1** (HIGH, 30) → **O2** (HIGH, 20) → **O4** (MEDIUM) → **O3** (LOW).
 
 | Turn | Order | Distances to vans with room | Goes to | Van after this |
 |---|---|---|---|---|
-| 1 | O1 | A 4.44 km · B 14.13 km | **VAN-A** | A: 30/50, now at Koramangala |
-| 2 | O2 | A 8.34 km (from Koramangala) · B 5.82 km | **VAN-B** | B: 20/40, now at Marathahalli |
-| 3 | O4 | A 11.10 km · B 5.40 km (from Marathahalli) | **VAN-B** | B: 35/40, now at KR Puram |
-| 4 | O3 (25) | A has 20 left, B has 5 left | **nobody** | reported in `unassignedOrders` |
+| 1 | O1 | A 6.47 km · B 9.72 km | **VAN-A** | A: 30/50, now at Jubilee Hills |
+| 2 | O2 | A 4.40 km (from Jubilee Hills) · B 5.33 km | **VAN-A** | A: 50/50, now at Ameerpet |
+| 3 | O4 | A full · B 10.27 km | **VAN-B** | B: 15/35, now at Kukatpally |
+| 4 | O3 (25) | A full · B has 20 left | **nobody** | reported in `unassignedOrders` |
 
-Final plan: VAN-A carries O1 (30, 4.44 km); VAN-B carries O2 and O4 (35, 11.22 km); O3 is unassigned.
-MG Road was the closest drop to VAN-A's start, but O3 is LOW priority, so the HIGH and MEDIUM orders
-took the space first. That is the priority rule working as intended.
+Final plan: VAN-A carries O1 and O2 (50, 10.87 km); VAN-B carries O4 (15, 10.27 km); O3 is unassigned.
+O3 is processed last, and VAN-B has only 20 left by then, so it does not fit. That is the priority and
+capacity rules working as intended: the HIGH and MEDIUM orders were placed first.
 
 ### Distance: the Haversine formula
 
@@ -200,8 +201,8 @@ The plan is recalculated on every request, so any add, update or delete shows up
 ```bash
 curl -X POST http://localhost:8080/api/dispatch/orders \
   -H "Content-Type: application/json" \
-  -d '{"orders":[{"orderId":"ORD001","latitude":12.9716,"longitude":77.5946,
-       "address":"MG Road, Bangalore, Karnataka, India","packageWeight":10,"priority":"HIGH"}]}'
+  -d '{"orders":[{"orderId":"ORD001","latitude":17.4437,"longitude":78.4669,
+       "address":"Begumpet, Hyderabad, Telangana, India","packageWeight":10,"priority":"HIGH"}]}'
 ```
 
 ```json
@@ -225,8 +226,8 @@ curl -X POST http://localhost:8080/api/dispatch/orders \
 ```bash
 curl -X POST http://localhost:8080/api/dispatch/vehicles \
   -H "Content-Type: application/json" \
-  -d '{"vehicles":[{"vehicleId":"VEH001","capacity":100,"currentLatitude":12.9716,
-       "currentLongitude":77.6413,"currentAddress":"Indiranagar, Bangalore, Karnataka, India"}]}'
+  -d '{"vehicles":[{"vehicleId":"VEH001","capacity":100,"currentLatitude":17.4437,
+       "currentLongitude":78.4669,"currentAddress":"Begumpet, Hyderabad, Telangana, India"}]}'
 ```
 
 ```json
@@ -245,15 +246,15 @@ curl -X POST http://localhost:8080/api/dispatch/vehicles \
   "dispatchPlan": [
     {
       "vehicleId": "VEH001",
-      "totalLoad": 10.0,
-      "totalDistance": "5.06 km",
+      "totalLoad": 30.0,
+      "totalDistance": "6.47 km",
       "assignedOrders": [
         {
           "orderId": "ORD001",
-          "latitude": 12.9716,
-          "longitude": 77.5946,
-          "address": "MG Road, Bangalore, Karnataka, India",
-          "packageWeight": 10.0,
+          "latitude": 17.4326,
+          "longitude": 78.4071,
+          "address": "Jubilee Hills, Hyderabad, Telangana, India",
+          "packageWeight": 30.0,
           "priority": "HIGH"
         }
       ]
