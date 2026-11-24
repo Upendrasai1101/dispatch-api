@@ -13,7 +13,7 @@ public class OpenApiConfig {
     @Bean
     public OpenAPI dispatchOpenApi() {
         return new OpenAPI().info(new Info()
-                .title("Dispatch Load Balancer API")
+                .title("Dispatch API")
                 .version("1.0.0")
                         .description("Core dispatch endpoints: submit vehicles and orders, "
                                 + "get the dispatch plan, plus the summary"))

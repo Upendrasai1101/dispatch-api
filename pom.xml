@@ -11,9 +11,9 @@
     </parent>
 
     <groupId>com.upendra</groupId>
-    <artifactId>dispatch-load-balancer</artifactId>
+    <artifactId>dispatch-api</artifactId>
     <version>1.0.0</version>
-    <name>dispatch-load-balancer</name>
+    <name>dispatch-api</name>
     <description>Dispatch Load Balancer - assigns delivery orders to vehicles</description>
 
     <properties>
@@ -68,7 +68,7 @@
     </dependencies>
 
     <build>
-        <finalName>dispatch-load-balancer</finalName>
+        <finalName>dispatch-api</finalName>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>

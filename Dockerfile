@@ -11,7 +11,7 @@ RUN mvn -B -q package -DskipTests
 FROM eclipse-temurin:21-jre
 WORKDIR /app
 RUN useradd --system --create-home appuser
-COPY --from=build /app/target/dispatch-load-balancer.jar app.jar
+COPY --from=build /app/target/dispatch-api.jar app.jar
 USER appuser
 EXPOSE 8080
 ENTRYPOINT ["java", "-XX:MaxRAMPercentage=75", "-jar", "/app/app.jar"]

@@ -77,7 +77,7 @@ class DispatchControllerTest {
     }
 
     @Test
-    void planForPdfSampleRespectsPriorityAndCapacity() throws Exception {
+    void planForSampleDataRespectsPriorityAndCapacity() throws Exception {
         postJson("/api/dispatch/vehicles", resource("/samples/sample-vehicles.json")).andExpect(status().isOk());
         postJson("/api/dispatch/orders", resource("/samples/sample-orders.json")).andExpect(status().isOk());
 
