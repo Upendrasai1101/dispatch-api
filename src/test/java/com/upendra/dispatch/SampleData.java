@@ -6,7 +6,7 @@ import com.upendra.dispatch.domain.Vehicle;
 
 import java.util.List;
 
-/** The 30 sample orders and 5 sample vehicles from the assignment PDF. */
+/** The 30 sample orders and 5 sample vehicles used for the demo. */
 public final class SampleData {
 
     public static final double CP_LAT = 28.6139, CP_LON = 77.2090;

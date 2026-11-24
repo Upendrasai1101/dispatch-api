@@ -142,7 +142,7 @@ class GreedyDispatchStrategyTest {
     }
 
     @Test
-    void assignmentSampleFromPdfRespectsAllConstraints() {
+    void sampleDataRespectsAllConstraints() {
         DispatchResult result = strategy.assign(SampleData.orders(), SampleData.vehicles());
 
         for (VehicleRoute route : result.routes()) {
